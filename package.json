@@ -1,5 +1,5 @@
 {
-  "name": "sokcho-jungang-heights-the228-landing",
+  "name": "sokcho-landing2-resort-magazine",
   "private": true,
   "version": "0.1.0",
   "type": "module",
@@ -7,6 +7,7 @@
     "dev": "vite --host 127.0.0.1",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 127.0.0.1",
+    "verify:landing2": "node scripts/verify-landing2.mjs",
     "solapi:upload-coupon": "node scripts/upload-solapi-mms-image.mjs"
   },
   "dependencies": {

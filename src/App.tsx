@@ -94,58 +94,57 @@ type UnitPlanInfo = {
 };
 
 const navItems = [
-  { label: "사업안내", href: "#summary" },
-  { label: "입지안내", href: "#premium" },
-  { label: "단지안내", href: "#life" },
-  { label: "세대안내", href: "#unit" },
-  { label: "분양안내", href: "#lead" },
-  { label: "고객센터", href: "#lead" },
+  { label: "리조트 라이프", href: "#summary" },
+  { label: "설악과 동해", href: "#premium" },
+  { label: "공간의 장면", href: "#valuable" },
+  { label: "세대 타입", href: "#unit" },
+  { label: "방문예약", href: "#lead" },
 ];
 
 const heroStats = [
-  { value: "228", label: "총 세대수", detail: "속초 최대규모 테라스 하우스", icon: Building2 },
-  { value: "14", label: "총 동수", detail: "지하2층~지상4층", icon: House },
-  { value: "84~101㎡", label: "주택형", detail: "실속형부터 대형 평면까지", icon: Compass },
-  { value: "속초IC 약 1km", label: "교통특권", detail: "광역 접근성 강화", icon: Train },
+  { value: "228", label: "PRIVATE HOUSEHOLDS", detail: "테라스 라이프를 위한 희소 단지", icon: Building2 },
+  { value: "14", label: "LOW-RISE VILLAGE", detail: "지하2층~지상4층의 낮은 스카이라인", icon: House },
+  { value: "84~101㎡", label: "RESORT UNITS", detail: "다락과 테라스를 품은 다양한 타입", icon: Compass },
+  { value: "속초IC 약 1km", label: "WEEKEND ACCESS", detail: "서울과 동해를 잇는 빠른 여정", icon: Train },
 ];
 
 const premiumCards = [
   {
-    title: "교통특권",
-    body: "속초IC 약 1km, 속초KTX 예정지 인접과 양양고속도로를 통한 광역 이동성",
+    title: "Weekend Route",
+    body: "속초IC 약 1km, 양양고속도로와 예정 교통망이 주말 별장 같은 접근성을 더합니다.",
     icon: Train,
   },
   {
-    title: "에코특권",
-    body: "3면 숲세권, 설악산 조망, 동해를 가까이 누리는 희소한 주거 환경",
+    title: "Mountain & Sea",
+    body: "설악산의 능선과 동해의 바람을 일상 반경 안에서 함께 누리는 입지입니다.",
     icon: Mountain,
   },
   {
-    title: "생활특권",
-    body: "이마트, 속초문화예술회관, 의료원, 학교 등 풍부한 생활 인프라",
+    title: "City Convenience",
+    body: "이마트, 문화예술회관, 의료원, 학교 등 속초의 생활 인프라를 가볍게 이용합니다.",
     icon: MapPin,
   },
   {
-    title: "설계특권",
-    body: "남향 위주 배치와 복층·루프탑·썬큰 테라스 일부세대 특화 설계",
+    title: "Terrace Scene",
+    body: "복층, 루프탑, 썬큰 테라스가 머무는 시간마다 다른 장면을 만듭니다.",
     icon: House,
   },
 ];
 
 const valueCards = [
   {
-    title: "쾌속 교통망",
-    body: "속초IC, KTX, 동해북부선 기대감이 더하는 미래 교통 프리미엄",
+    title: "Road Trip Ready",
+    body: "속초IC와 광역 교통 기대감이 세컨드하우스처럼 가벼운 이동을 돕습니다.",
     image: "/assets/Rapid transportation network.png",
   },
   {
-    title: "설악 힐링 입지",
-    body: "설악산과 동해가 가까운 입지에서 누리는 사계절 휴식",
+    title: "Seorak Hideaway",
+    body: "계절마다 표정이 달라지는 설악과 동해를 가까이 둔 휴식의 자리입니다.",
     image: "/assets/sea-mountain-panorama.jpg?v=20260526094252",
   },
   {
-    title: "테라스하우스 특화",
-    body: "복층·루프탑·썬큰 테라스가 완성하는 여유로운 주거 경험",
+    title: "Terrace Journal",
+    body: "복층, 루프탑, 썬큰 테라스가 가족의 취향을 담는 야외 거실이 됩니다.",
     image: "/assets/complex-wide.jpg",
   },
 ];
@@ -199,13 +198,13 @@ const valuableFeatures = [
 
 const lifeCards = [
   {
-    title: "SPECIAL SPACE",
-    body: "삶의 여유로움을 누리는 특별한 테라스와 다락 공간",
+    title: "TERRACE HOURS",
+    body: "아침의 커피, 오후의 독서, 저녁의 바람을 담는 테라스와 다락",
     image: "/assets/interior-overview.jpg",
   },
   {
-    title: "COMMUNITY",
-    body: "오직 228세대에게 허락된 고품격 커뮤니티 시설",
+    title: "QUIET COMMUNITY",
+    body: "228세대가 공유하는 낮은 밀도의 커뮤니티와 여유로운 생활 리듬",
     image: "/assets/community-main.jpg",
   },
 ];
@@ -386,9 +385,9 @@ const launchVideoUrl = "https://www.youtube.com/embed/zlkLa8TpfUI?autoplay=1&mut
 const inquiryPhone = "010-7939-7089";
 const inquiryPhoneHref = `tel:${inquiryPhone.replace(/-/g, "")}`;
 const naverMapUrl = "https://naver.me/xFLzjQKa";
-const leadStorageKey = "sokcho-the228-leads";
-const smsSettingsStorageKey = "sokcho-the228-sms-settings";
-const adPopupStorageKey = "sokcho-the228-web-ad-hidden-date";
+const leadStorageKey = "sokcho-landing2-leads";
+const smsSettingsStorageKey = "sokcho-landing2-sms-settings";
+const adPopupStorageKey = "sokcho-landing2-web-ad-hidden-date";
 const webAdBannerSrc = "/assets/web-ad-banner.png?v=20260527";
 const duplicateReservationMessage = "이미 방문예약 접수된 고객입니다.";
 const defaultSmsBodyTemplate = `안녕하세요, {{name}} 고객님
@@ -502,7 +501,7 @@ async function saveLead(input: LeadInput): Promise<LeadSubmission> {
       ...input,
       createdAt: new Date().toISOString(),
       id: crypto.randomUUID(),
-      source: "browser-storage",
+      source: "landing2-resort-magazine",
       smsStatus: "skipped",
       smsSentAt: null,
       smsError: null,
@@ -688,8 +687,8 @@ function Header({ onUnitVideoOpen }: { onUnitVideoOpen: () => void }) {
       <a className="brand" href="#top" aria-label="속초 중앙하이츠 THE 228 홈">
         <img className="brand-logo" src="/assets/Sokcho-logo.png" alt="속초 중앙하이츠 THE 228" />
         <span className="brand-copy">
-          <span>SOKCHO JUNGANG HEIGHTS</span>
-          <strong>THE228 SOKCHO</strong>
+          <span>SOKCHO-LANDING2</span>
+          <strong>RESORT MAGAZINE</strong>
         </span>
       </a>
       <nav className="nav-links" aria-label="주요 메뉴">
@@ -711,26 +710,35 @@ function Hero() {
   return (
     <section className="hero" id="top">
       <div className="hero-bg" />
-      <div className="hero-content">
-        <p className="hero-brand">SOKCHO JUNGANG HEIGHTS THE 228</p>
-        <h1>
-          설악과 동해가 내린
-          <br />
-          속초 중앙하이츠
-          <br />
-          <span>THE 228</span>
-        </h1>
-        <p className="hero-copy">
-          속초 최대규모 228세대, 숲과 바다를 가까이 누리는 럭셔리 테라스 하우스의 탄생
-        </p>
-        <div className="hero-actions">
-          <button className="btn btn-gold" onClick={() => scrollToHash("#summary")}>
-            사업개요 보기 <ArrowRight size={18} />
-          </button>
-          <button className="btn btn-ghost" onClick={() => scrollToHash("#lead")}>
-            상담신청
-          </button>
+      <div className="hero-shell">
+        <div className="hero-content">
+          <p className="hero-brand">SOKCHO-LANDING2 · RESORT MAGAZINE</p>
+          <h1>
+            설악의 능선과
+            <br />
+            동해의 빛을 담은
+            <br />
+            <span>THE 228</span>
+          </h1>
+          <p className="hero-copy">
+            속초 중앙하이츠 THE 228을 휴양지의 하루처럼 읽는 새로운 랜딩페이지.
+            숲, 바다, 테라스가 이어지는 228세대의 리조트 라이프를 소개합니다.
+          </p>
+          <div className="hero-actions">
+            <button className="btn btn-gold" onClick={() => scrollToHash("#lead")}>
+              방문예약 <ArrowRight size={18} />
+            </button>
+            <button className="btn btn-ghost" onClick={() => scrollToHash("#summary")}>
+              매거진 둘러보기
+            </button>
+          </div>
         </div>
+        <aside className="resort-note" aria-label="리조트 매거진 노트">
+          <span>Issue 02</span>
+          <strong>Seorak, Sea, Terrace</strong>
+          <p>창밖의 산세와 바다 가까운 생활, 그리고 나만의 야외 거실을 한 권의 여행지처럼 구성했습니다.</p>
+          <img src="/assets/summary-terrace-view.jpg" alt="속초 중앙하이츠 THE 228 테라스 조망 이미지" />
+        </aside>
       </div>
       <div className="hero-statbar" aria-label="핵심 사업 정보">
         {heroStats.map(({ value, label, detail, icon: Icon }) => (
@@ -751,11 +759,11 @@ function Summary() {
     <section className="section summary" id="summary">
       <div className="section-grid">
         <div className="section-copy">
-          <span className="section-label">SUMMARY</span>
-          <h2>자연이 만든 빛나는 작품이 되다</h2>
+          <span className="section-label">RESORT LIFE</span>
+          <h2>집이라기보다, 자주 돌아오고 싶은 속초의 한 장면</h2>
           <p>
-            테라스에서 바라보는 설악의 조망과 집을 나서면 바로 만나는 속초 앞바다.
-            지금껏 경험하지 못한 프리미엄 힐링 라이프가 시작됩니다.
+            설악의 능선이 하루의 배경이 되고, 동해의 바람이 테라스까지 닿는 곳.
+            속초 중앙하이츠 THE 228은 주거와 휴식의 경계를 부드럽게 잇는 저층형 테라스 하우스입니다.
           </p>
           <div className="summary-metrics">
             <div><strong>228</strong><span>총 세대수</span></div>
@@ -766,7 +774,7 @@ function Summary() {
         </div>
         <div className="summary-media">
           <img src="/assets/Sokcho-life.png" alt="속초 중앙하이츠 THE 228 단지 조감도" />
-          <div className="media-caption">SOKCHO THE 228 · 설악과 동해가 가까운 자리</div>
+          <div className="media-caption">A LOW-RISE RESORT VILLAGE IN SOKCHO</div>
         </div>
       </div>
     </section>
@@ -777,8 +785,9 @@ function Premium() {
   return (
     <section className="section premium" id="premium">
       <div className="section-heading">
-        <span className="section-label">PREMIUM 4</span>
-        <h2>속초 중앙하이츠 THE 228이 선사하는 네 가지 프리미엄</h2>
+        <span className="section-label">TRAVEL NOTES</span>
+        <h2>주말의 여행감과 일상의 편의가 같은 주소 안에 있습니다</h2>
+        <p>입지, 자연, 생활 인프라, 특화 설계를 여행 매거진의 챕터처럼 가볍게 넘겨보세요.</p>
       </div>
       <div className="premium-grid">
         {premiumCards.map(({ title, body, icon: Icon }) => (
@@ -799,8 +808,8 @@ function ValueSection() {
   return (
     <section className="value-band">
       <div className="section-heading inverse">
-        <span className="section-label">THE 228 PREMIUM VALUE</span>
-        <h2>동해와 설악, 속초의 미래가 만나는 자리</h2>
+        <span className="section-label">SCENES AROUND THE 228</span>
+        <h2>길, 산, 테라스가 하루의 리듬을 바꿉니다</h2>
       </div>
       <div className="value-cards">
         {valueCards.map((card) => (
@@ -829,8 +838,8 @@ function MostValuableSection() {
       <div className="valuable-shell">
         <div className="valuable-head">
           <div>
-            <span>SOKCHO JUNGANG HEIGHTS THE 228</span>
-            <h2 id="valuable-title">THE MOST VALUABLE 05</h2>
+            <span>EDITORIAL PICKS</span>
+            <h2 id="valuable-title">Five Favorite Moments</h2>
           </div>
         </div>
 
@@ -840,11 +849,11 @@ function MostValuableSection() {
             <figcaption>CG 이미지</figcaption>
           </figure>
           <div className="valuable-hero-copy">
-            <span>SOKCHO TERRACE LIFE</span>
-            <h3>자연의 여유와 생활 인프라를 함께 누리다.</h3>
+            <span>LOW-RISE RESORT VILLAGE</span>
+            <h3>낮은 단지, 넓은 하늘, 테라스에서 시작되는 하루.</h3>
             <p>
-              속초 최대규모 228세대, 설악과 동해가 어우러진 럭셔리 테라스 하우스.
-              자연의 여유와 도시 인프라를 함께 누리는 프리미엄 라이프를 제공합니다.
+              속초 최대규모 228세대의 테라스 하우스를 조망, 거실, 다이닝, 다락, 커뮤니티의 장면으로 다시 편집했습니다.
+              머무는 방식이 곧 가치가 되는 주거 경험을 확인하세요.
             </p>
           </div>
         </article>
@@ -894,14 +903,14 @@ function LifeSection() {
     <section className="section life" id="life">
       <div className="life-top">
         <div className="section-copy">
-          <span className="section-label">PREMIUM LIFE</span>
-          <h2>다양한 테마공간 배치로 여유를 더한 명품 테라스하우스</h2>
+          <span className="section-label">STAY A WHILE</span>
+          <h2>테라스, 다락, 커뮤니티가 머무는 시간을 길게 만듭니다</h2>
           <p>
-            특화된 단지설계와 숲을 품은 조경 설계로 트렌디한 생활과 자연이 주는
-            여유를 동시에 누릴 수 있습니다.
+            낮은 밀도의 단지 안에서 가족의 취향이 자연스럽게 드러납니다.
+            실내의 편안함과 야외의 개방감을 이어주는 장면들을 살펴보세요.
           </p>
         </div>
-        <img src="/assets/complex-wide.jpg" alt="속초 중앙하이츠 THE 228 단지 전경" />
+        <img src="/assets/terrace-houses.jpg" alt="속초 중앙하이츠 THE 228 테라스 하우스 이미지" />
       </div>
       <div className="life-cards">
         {lifeCards.map((card) => (
@@ -1111,8 +1120,8 @@ function LeadSection() {
     <section className="lead" id="lead">
       <div className="lead-copy">
         <span className="section-label">CONTACT</span>
-        <h2>속초가 아껴둔 그 자리에서 당신이 꿈꾸던 삶이 시작됩니다</h2>
-        <p>속초 중앙하이츠 THE 228의 프리미엄을 지금 확인하세요.</p>
+        <h2>이번 주말, 속초의 다음 주소를 직접 확인해 보세요</h2>
+        <p>리조트처럼 머무는 테라스 라이프가 궁금하다면 방문 상담 일정을 남겨주세요.</p>
         <div className="lead-points">
           <span><Phone size={18} /> {inquiryPhone}</span>
           <span><CalendarDays size={18} /> 방문 상담 예약</span>

@@ -3035,3 +3035,416 @@ a {
     grid-template-columns: 1fr;
   }
 }
+
+/* Landing2 resort magazine refresh */
+:root {
+  --navy: #10313d;
+  --navy-900: #071c24;
+  --teal: #2d6f70;
+  --sky: #e5f1ef;
+  --gold: #a9783f;
+  --gold-strong: #c08a4a;
+  --ink: #19272a;
+  --muted: #66716c;
+  --line: #ded7ca;
+  --surface: #fffdf8;
+  --soft: #f3eee4;
+  --shadow: 0 18px 42px rgba(20, 38, 39, 0.16);
+}
+
+body {
+  background: #f7f1e7;
+}
+
+.site-header {
+  background: rgba(255, 253, 248, 0.9);
+  border-bottom-color: rgba(25, 39, 42, 0.1);
+  box-shadow: 0 10px 28px rgba(16, 49, 61, 0.08);
+  height: 74px;
+}
+
+.brand-copy {
+  border-left-color: rgba(169, 120, 63, 0.32);
+}
+
+.brand-copy span {
+  color: #6d7772;
+}
+
+.brand-copy strong,
+.nav-links a:hover {
+  color: #8b6132;
+}
+
+.header-cta {
+  background: #10313d;
+}
+
+.header-cta:hover {
+  background: #1d4a58;
+}
+
+.hero {
+  background: #071c24;
+  min-height: 760px;
+  padding: 74px 0 58px;
+}
+
+.hero-bg {
+  background:
+    linear-gradient(90deg, rgba(7, 28, 36, 0.9) 0%, rgba(7, 28, 36, 0.62) 42%, rgba(7, 28, 36, 0.18) 100%),
+    linear-gradient(180deg, rgba(7, 28, 36, 0.06) 0%, rgba(7, 28, 36, 0.82) 100%),
+    url("/assets/sea-mountain-panorama.jpg?v=20260526094252") center / cover;
+  inset: 74px 0 0;
+}
+
+.hero-shell {
+  align-items: end;
+  color: #fffdf8;
+  display: grid;
+  gap: clamp(36px, 5vw, 76px);
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+  margin: 0 auto;
+  max-width: 1280px;
+  min-height: 560px;
+  padding: 82px clamp(24px, 6vw, 86px) 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-content {
+  margin: 0;
+  max-width: 760px;
+  padding-top: 0;
+}
+
+.hero-brand {
+  color: rgba(255, 253, 248, 0.78);
+  font-size: 13px;
+  letter-spacing: 0;
+  margin-bottom: 18px;
+}
+
+.hero h1 {
+  color: #fffdf8;
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 1.08;
+  max-width: 760px;
+}
+
+.hero h1 span {
+  color: #e5bd7a;
+}
+
+.hero-copy {
+  color: rgba(255, 253, 248, 0.82);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.75;
+  max-width: 680px;
+}
+
+.resort-note {
+  align-self: stretch;
+  background: rgba(255, 253, 248, 0.92);
+  border: 1px solid rgba(255, 253, 248, 0.44);
+  color: #19272a;
+  display: grid;
+  gap: 15px;
+  padding: 22px;
+}
+
+.resort-note span {
+  color: #a9783f;
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 0;
+}
+
+.resort-note strong {
+  color: #10313d;
+  font-size: 27px;
+  line-height: 1.15;
+}
+
+.resort-note p {
+  color: #5d6964;
+  font-size: 15px;
+  line-height: 1.68;
+  margin: 0;
+}
+
+.resort-note img {
+  aspect-ratio: 1 / 0.78;
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.hero-statbar {
+  background: rgba(255, 253, 248, 0.96);
+  border-radius: 8px;
+  color: #19272a;
+  margin-top: 46px;
+}
+
+.hero-statbar article {
+  min-height: 146px;
+}
+
+.hero-statbar article:not(:last-child)::after {
+  background: rgba(16, 49, 61, 0.16);
+}
+
+.hero-statbar svg {
+  color: #a9783f;
+}
+
+.hero-statbar span {
+  color: #2d6f70;
+  font-size: 12px;
+}
+
+.hero-statbar p {
+  color: #66716c;
+}
+
+.btn-gold {
+  background: #a9783f;
+}
+
+.btn-gold:hover {
+  background: #8e6132;
+}
+
+.btn-ghost {
+  background: rgba(255, 253, 248, 0.1);
+  border-color: rgba(255, 253, 248, 0.72);
+}
+
+.section {
+  background: #fffdf8;
+}
+
+.summary {
+  background: #f7f1e7;
+}
+
+.section-label {
+  color: #a9783f;
+}
+
+.section-copy h2,
+.section-heading h2,
+.lead h2 {
+  color: #10313d;
+}
+
+.section-copy p,
+.section-heading p {
+  color: #66716c;
+}
+
+.summary-media,
+.life-top > img,
+.life-cards article,
+.premium-card,
+.value-card,
+.unit-card,
+.lead-form,
+.unit-placeholder,
+.summary-metrics div {
+  border-radius: 8px;
+}
+
+.summary-media {
+  box-shadow: 0 22px 46px rgba(25, 39, 42, 0.15);
+}
+
+.media-caption {
+  background: rgba(16, 49, 61, 0.92);
+  color: #fffdf8;
+}
+
+.premium {
+  background: #fffdf8;
+}
+
+.premium-grid {
+  gap: 18px;
+}
+
+.premium-card {
+  background: #f7f1e7;
+  border-color: rgba(169, 120, 63, 0.18);
+  box-shadow: none;
+}
+
+.premium-card svg {
+  color: #2d6f70;
+}
+
+.premium-card h3 {
+  color: #10313d;
+}
+
+.value-band {
+  background:
+    linear-gradient(180deg, rgba(7, 28, 36, 0.9), rgba(16, 49, 61, 0.9)),
+    url("/assets/terrace-houses.jpg") center / cover;
+}
+
+.value-card {
+  box-shadow: 0 18px 34px rgba(7, 28, 36, 0.22);
+}
+
+.value-card div {
+  background: #fffdf8;
+}
+
+.value-numbers {
+  background: rgba(255, 253, 248, 0.08);
+}
+
+.most-valuable {
+  background: #f7f1e7;
+}
+
+.valuable-hero {
+  background: #10313d;
+  border-radius: 8px;
+}
+
+.valuable-item {
+  background: rgba(255, 253, 248, 0.62);
+  border-color: rgba(16, 49, 61, 0.1);
+}
+
+.valuable-footer-strip {
+  background: #10313d;
+  color: #e5bd7a;
+}
+
+.life {
+  background: #fffdf8;
+}
+
+.unit {
+  background: #eef3ee;
+}
+
+.unit-card {
+  box-shadow: 0 18px 38px rgba(16, 49, 61, 0.12);
+}
+
+.unit-tabs button {
+  border-radius: 8px;
+}
+
+.unit-tabs button.active {
+  background: #10313d;
+  border-color: #10313d;
+}
+
+.link-button {
+  border-color: #a9783f;
+  color: #a9783f;
+}
+
+.link-button[aria-expanded="true"] {
+  background: #a9783f;
+}
+
+.lead {
+  background:
+    linear-gradient(90deg, rgba(7, 28, 36, 0.92), rgba(16, 49, 61, 0.74)),
+    url("/assets/summary-terrace-view.jpg") center / cover;
+}
+
+.lead::before {
+  content: none;
+}
+
+.lead-form {
+  box-shadow: 0 22px 55px rgba(7, 28, 36, 0.3);
+}
+
+.lead-form input,
+.lead-form select {
+  background: #fbf8f1;
+  border-color: #ded7ca;
+}
+
+.lead-form input:focus,
+.lead-form select:focus {
+  border-color: #a9783f;
+  outline-color: rgba(169, 120, 63, 0.2);
+}
+
+.site-footer {
+  background:
+    linear-gradient(180deg, rgba(7, 28, 36, 0.96), rgba(7, 28, 36, 1)),
+    url("/assets/sea-mountain-panorama.jpg?v=20260526094252") center / cover;
+}
+
+@media (max-width: 1080px) {
+  .hero-shell {
+    align-items: start;
+    grid-template-columns: 1fr;
+    min-height: 0;
+    padding-top: 72px;
+  }
+
+  .resort-note {
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    height: 68px;
+  }
+
+  .hero {
+    min-height: 0;
+    padding-top: 68px;
+  }
+
+  .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(7, 28, 36, 0.62), rgba(7, 28, 36, 0.92)),
+      url("/assets/sea-mountain-panorama.jpg?v=20260526094252") center / cover;
+    inset: 68px 0 0;
+  }
+
+  .hero-shell {
+    gap: 28px;
+    padding: 72px 20px 0;
+  }
+
+  .hero-content {
+    max-width: none;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero-copy {
+    font-size: 16px;
+    line-height: 1.68;
+  }
+
+  .resort-note {
+    padding: 18px;
+  }
+
+  .resort-note strong {
+    font-size: 22px;
+  }
+
+  .hero-statbar {
+    margin: 28px 16px 0;
+  }
+}

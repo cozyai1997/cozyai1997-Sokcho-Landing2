@@ -27,8 +27,8 @@ type SmsSettings = {
   updatedAt?: string;
 };
 
-const leadsFile = path.resolve(__dirname, "data", "leads.json");
-const smsSettingsFile = path.resolve(__dirname, "data", "sms-template.json");
+const leadsFile = path.resolve(__dirname, "data", "sokcho-landing2-leads.json");
+const smsSettingsFile = path.resolve(__dirname, "data", "sokcho-landing2-sms-template.json");
 const duplicateReservationMessage = "이미 방문예약 접수된 고객입니다.";
 const defaultSmsSettings: SmsSettings = {
   enabled: false,
@@ -146,7 +146,7 @@ export default defineConfig({
                 visitDate,
                 visitTime,
                 createdAt: new Date().toISOString(),
-                source: "landing-page",
+                source: "landing2-resort-magazine",
                 smsStatus: "skipped",
                 smsSentAt: null,
                 smsError: null,

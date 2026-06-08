@@ -43,7 +43,7 @@ type DeleteInput = {
   ids: string[];
 };
 
-const tableName = "sokcho_the228_leads";
+const tableName = "sokcho_landing2_leads";
 const selectColumns =
   "id,name,phone,type,visit_date,visit_time,created_at,source,sms_status,sms_sent_at,sms_error,sms_message_id";
 const duplicateReservationMessage = "이미 방문예약 접수된 고객입니다.";
@@ -160,7 +160,7 @@ export default async function handler(request: VercelRequest, response: VercelRe
           type: input.type,
           visit_date: input.visitDate,
           visit_time: input.visitTime,
-          source: "landing-page",
+          source: "landing2-resort-magazine",
         })
         .select(selectColumns)
         .single();

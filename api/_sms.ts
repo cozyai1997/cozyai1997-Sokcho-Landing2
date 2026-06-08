@@ -34,7 +34,7 @@ export type SendSmsResult = {
   messageId: string | null;
 };
 
-export const smsSettingsTableName = "sokcho_the228_sms_settings";
+export const smsSettingsTableName = "sokcho_landing2_sms_settings";
 export const smsSettingsSelectColumns = "enabled,subject,body_template,image_id,updated_at";
 export const defaultSmsSubject = "속초 중앙하이츠 THE 228 방문예약";
 export const defaultSmsBodyTemplate = `안녕하세요, {{name}} 고객님
