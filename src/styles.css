@@ -3448,3 +3448,586 @@ body {
     margin: 28px 16px 0;
   }
 }
+
+/* Starcella-like visual direction: keep content, change only presentation. */
+:root {
+  --navy: #021b31;
+  --navy-900: #001326;
+  --teal: #006b75;
+  --sky: #eaf5f7;
+  --gold: #0b7180;
+  --gold-strong: #117c8c;
+  --ink: #061e38;
+  --muted: #607080;
+  --line: #dfe7ee;
+  --surface: #ffffff;
+  --soft: #f6f8fb;
+  --shadow: 0 14px 35px rgba(6, 30, 56, 0.12);
+}
+
+body {
+  background: #fff;
+}
+
+.site-header {
+  background: rgba(1, 20, 39, 0.98);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+  height: 80px;
+}
+
+.brand-logo {
+  filter: brightness(0) invert(1);
+  height: 48px;
+}
+
+.brand-copy {
+  border-left-color: rgba(255, 255, 255, 0.22);
+}
+
+.brand-copy span,
+.brand-copy strong,
+.nav-links a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.nav-links a {
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.nav-links a:hover,
+.brand-copy strong {
+  color: #b9ecf0;
+}
+
+.header-cta {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  color: #fff;
+  min-height: 42px;
+}
+
+.header-cta:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.hero {
+  background: #dceef7;
+  min-height: 705px;
+  overflow: hidden;
+  padding: 80px 0 0;
+}
+
+.hero-bg {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.72) 34%, rgba(255, 255, 255, 0.28) 58%, rgba(255, 255, 255, 0) 100%),
+    linear-gradient(180deg, rgba(236, 249, 255, 0.08) 0%, rgba(236, 249, 255, 0.12) 70%, rgba(255, 255, 255, 0.86) 100%),
+    url("/assets/hero-aerial.jpg") center bottom / cover;
+  inset: 80px 0 0;
+}
+
+.hero-shell {
+  align-items: start;
+  grid-template-columns: minmax(0, 0.78fr) minmax(320px, 0.45fr);
+  margin: 0 auto;
+  max-width: 1280px;
+  min-height: 430px;
+  padding: clamp(64px, 8vw, 98px) clamp(32px, 6vw, 82px) 0;
+}
+
+.hero-content {
+  color: #061e38;
+  max-width: 680px;
+}
+
+.hero-brand {
+  color: #42556a;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  color: #061e38;
+  font-size: clamp(46px, 5vw, 68px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: #087486;
+}
+
+.hero-copy {
+  color: #273c54;
+  font-size: clamp(18px, 1.65vw, 22px);
+  font-weight: 500;
+  line-height: 1.72;
+  margin-top: 24px;
+}
+
+.hero-actions {
+  margin-top: 30px;
+}
+
+.btn {
+  border-radius: 0;
+  min-height: 44px;
+}
+
+.btn-gold {
+  background: #087486;
+  color: #fff;
+}
+
+.btn-gold:hover {
+  background: #005e70;
+}
+
+.btn-ghost {
+  background: rgba(255, 255, 255, 0.34);
+  border-color: rgba(6, 30, 56, 0.38);
+  color: #061e38;
+}
+
+.resort-note {
+  align-self: start;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.76);
+  box-shadow: 0 20px 44px rgba(6, 30, 56, 0.12);
+  color: #061e38;
+  margin-top: 14px;
+  padding: 18px;
+}
+
+.resort-note span {
+  color: #087486;
+}
+
+.resort-note strong {
+  color: #061e38;
+  font-size: 24px;
+}
+
+.resort-note p {
+  color: #42556a;
+}
+
+.resort-note img {
+  aspect-ratio: 1.5 / 0.78;
+}
+
+.hero-statbar {
+  background: transparent;
+  box-shadow: none;
+  color: #061e38;
+  gap: 22px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 12px auto 0;
+  max-width: 920px;
+  padding: 0;
+  width: calc(100% - clamp(72px, 12vw, 180px));
+}
+
+.hero-statbar article {
+  align-content: start;
+  gap: 8px;
+  justify-items: start;
+  min-height: 88px;
+  padding: 0;
+  text-align: left;
+}
+
+.hero-statbar article:not(:last-child)::after {
+  content: none;
+}
+
+.hero-statbar svg {
+  color: #087486;
+  stroke-width: 1.55;
+}
+
+.hero-statbar strong {
+  color: #061e38;
+  font-size: 15px;
+  font-weight: 900;
+}
+
+.hero-statbar span {
+  color: #087486;
+  font-size: 11px;
+  font-weight: 950;
+}
+
+.hero-statbar p {
+  color: #334960;
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.section {
+  background: #fff;
+  padding-bottom: clamp(74px, 8vw, 110px);
+  padding-top: clamp(74px, 8vw, 110px);
+}
+
+.summary {
+  background: #fff;
+  padding-top: clamp(74px, 8vw, 108px);
+}
+
+.section-grid {
+  grid-template-columns: 1fr;
+  gap: 34px;
+  max-width: 1120px;
+  text-align: center;
+}
+
+.section-copy {
+  margin: 0 auto;
+  max-width: 760px;
+}
+
+.section-label {
+  color: #8d98a4;
+  font-size: 12px;
+  letter-spacing: 0;
+}
+
+.section-copy h2,
+.section-heading h2,
+.lead h2 {
+  color: #061e38;
+  font-size: clamp(32px, 3.5vw, 46px);
+  font-weight: 500;
+}
+
+.section-copy p,
+.section-heading p {
+  color: #46586b;
+  font-size: 17px;
+  line-height: 1.72;
+}
+
+.summary-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 32px auto 0;
+  max-width: 760px;
+}
+
+.summary-metrics div {
+  background: #fff;
+  border-color: #dfe7ee;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.summary-metrics strong {
+  color: #087486;
+}
+
+.summary-media {
+  background: #fff;
+  border: 1px solid #dfe7ee;
+  border-radius: 10px;
+  box-shadow: 0 18px 44px rgba(6, 30, 56, 0.1);
+  margin: 0 auto;
+  max-width: 1120px;
+  min-height: 330px;
+  padding: 16px;
+}
+
+.summary-media img {
+  border-radius: 6px;
+  min-height: 330px;
+}
+
+.media-caption {
+  background: rgba(1, 20, 39, 0.88);
+  bottom: 30px;
+  color: #fff;
+  left: 30px;
+}
+
+.premium {
+  background: #fff;
+  padding-top: 34px;
+}
+
+.premium-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 1120px;
+}
+
+.premium-card {
+  background: #fff;
+  border: 1px solid #dfe7ee;
+  border-radius: 6px;
+  box-shadow: 0 12px 24px rgba(6, 30, 56, 0.06);
+  display: grid;
+  gap: 14px;
+  min-height: 184px;
+  padding: 28px 22px;
+}
+
+.premium-card svg {
+  color: #087486;
+  height: 31px;
+  width: 31px;
+}
+
+.premium-card h3 {
+  color: #061e38;
+  font-size: 20px;
+}
+
+.premium-card p {
+  color: #536579;
+  font-size: 14px;
+}
+
+.value-band {
+  background:
+    linear-gradient(90deg, rgba(0, 19, 38, 0.96) 0%, rgba(0, 34, 64, 0.88) 38%, rgba(0, 34, 64, 0.28) 100%),
+    url("/assets/summary-terrace-view.jpg") center / cover;
+  min-height: 470px;
+  padding-bottom: clamp(62px, 7vw, 92px);
+  padding-top: clamp(62px, 7vw, 92px);
+}
+
+.value-band .section-heading {
+  margin-left: clamp(22px, 5vw, 72px);
+  max-width: 520px;
+  text-align: left;
+}
+
+.inverse .section-label {
+  color: rgba(255, 255, 255, 0.66);
+}
+
+.inverse h2 {
+  color: #fff;
+  font-size: clamp(34px, 4vw, 52px);
+}
+
+.value-cards {
+  margin-left: clamp(22px, 5vw, 72px);
+  max-width: 760px;
+}
+
+.value-card {
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 4px;
+  box-shadow: 0 18px 34px rgba(0, 19, 38, 0.26);
+}
+
+.value-card img {
+  aspect-ratio: 1.3 / 0.72;
+}
+
+.value-card div {
+  min-height: 128px;
+}
+
+.value-numbers {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.16);
+  margin-left: clamp(22px, 5vw, 72px);
+  max-width: 760px;
+}
+
+.value-numbers strong {
+  color: #a9f1f5;
+}
+
+.most-valuable {
+  background: #fff;
+}
+
+.valuable-head h2 {
+  color: #061e38;
+  font-weight: 500;
+}
+
+.valuable-hero {
+  background: #001326;
+  border-radius: 0;
+}
+
+.valuable-item {
+  background: #fff;
+}
+
+.unit {
+  background: #f6f8fb;
+}
+
+.unit-card {
+  background: transparent;
+  box-shadow: none;
+  grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1.38fr);
+}
+
+.unit-copy {
+  background: transparent;
+  padding-left: 0;
+}
+
+.unit-copy h3 {
+  color: #061e38;
+}
+
+.unit-tabs button {
+  border-radius: 0;
+}
+
+.unit-tabs button.active {
+  background: #061e38;
+  border-color: #061e38;
+}
+
+.unit-image,
+.unit-placeholder {
+  background: #fff;
+  border-radius: 6px;
+}
+
+.life {
+  background: #001b31;
+  color: #fff;
+}
+
+.life .section-copy h2,
+.life .section-copy p {
+  color: #fff;
+}
+
+.life-top,
+.life-cards {
+  max-width: 1180px;
+}
+
+.life-cards article {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+}
+
+.lead {
+  background:
+    linear-gradient(90deg, rgba(0, 19, 38, 0.96), rgba(0, 34, 64, 0.82)),
+    url("/assets/sea-mountain-panorama.jpg?v=20260526094252") center / cover;
+}
+
+.lead-form {
+  border-radius: 6px;
+}
+
+.site-footer {
+  background: #001326;
+}
+
+@media (max-width: 1080px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-bottom: 46px;
+  }
+
+  .hero-shell {
+    grid-template-columns: 1fr;
+    min-height: 0;
+  }
+
+  .resort-note {
+    max-width: 520px;
+  }
+
+  .hero-statbar,
+  .premium-grid,
+  .value-cards,
+  .value-numbers {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-statbar {
+    margin-top: 34px;
+  }
+}
+
+@media (max-width: 680px) {
+  .site-header {
+    height: 68px;
+  }
+
+  .brand-logo {
+    filter: none;
+    height: 46px;
+  }
+
+  .hero {
+    padding-top: 68px;
+  }
+
+  .hero-bg {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.64) 46%, rgba(255, 255, 255, 0.24)),
+      url("/assets/hero-aerial.jpg") 52% bottom / cover;
+    inset: 68px 0 0;
+  }
+
+  .hero-shell {
+    padding: 58px 20px 0;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero-copy {
+    font-size: 16px;
+  }
+
+  .resort-note {
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .hero-statbar,
+  .premium-grid,
+  .value-cards,
+  .value-numbers,
+  .summary-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-statbar {
+    margin: 26px 20px 0;
+    width: calc(100% - 40px);
+  }
+
+  .hero-statbar article {
+    min-height: 68px;
+  }
+
+  .summary-media {
+    padding: 10px;
+  }
+
+  .value-band .section-heading,
+  .value-cards,
+  .value-numbers {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .unit-card {
+    grid-template-columns: 1fr;
+  }
+
+  .unit-copy {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
