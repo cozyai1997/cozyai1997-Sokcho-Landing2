@@ -683,36 +683,43 @@ async function saveSmsSettings(settings: SmsSettings): Promise<SmsSettings> {
 
 function Header({ onUnitVideoOpen }: { onUnitVideoOpen: () => void }) {
   return (
-    <header className="site-header">
-      <a className="brand" href="#top" aria-label="속초 중앙하이츠 THE 228 홈">
+    <header className="site-header lux-header">
+      <a className="brand lux-brand" href="#top" aria-label="속초 중앙하이츠 THE 228 홈">
         <img className="brand-logo" src="/assets/Sokcho-logo.png" alt="속초 중앙하이츠 THE 228" />
         <span className="brand-copy">
-          <span>SOKCHO-LANDING2</span>
-          <strong>RESORT MAGAZINE</strong>
+          <span>SOKCHO THE 228</span>
+          <strong>PREMIUM TERRACE HOUSE</strong>
         </span>
       </a>
-      <nav className="nav-links" aria-label="주요 메뉴">
+      <nav className="nav-links lux-nav" aria-label="주요 메뉴">
         {navItems.map((item) => (
           <a key={item.label} href={item.href}>
             {item.label}
           </a>
         ))}
       </nav>
-      <button className="header-cta header-video" type="button" onClick={onUnitVideoOpen} aria-label="유니트 영상 보기">
-        <PlayCircle size={17} />
-        유니트 영상
-      </button>
+      <div className="lux-header-actions">
+        <a className="lux-header-phone" href={inquiryPhoneHref} aria-label="전화 상담">
+          <Phone size={16} />
+          {inquiryPhone}
+        </a>
+        <button className="header-cta header-video" type="button" onClick={onUnitVideoOpen} aria-label="유니트 영상 보기">
+          <PlayCircle size={17} />
+          유니트 영상
+        </button>
+      </div>
     </header>
   );
 }
 
 function Hero() {
   return (
-    <section className="hero" id="top">
-      <div className="hero-bg" />
-      <div className="hero-shell">
-        <div className="hero-content">
-          <p className="hero-brand">SOKCHO-LANDING2 · RESORT MAGAZINE</p>
+    <section className="lux-hero" id="top">
+      <div className="lux-hero-media" />
+      <div className="lux-hero-shade" />
+      <div className="lux-hero-inner">
+        <div className="lux-hero-copy">
+          <p className="lux-eyebrow">PREMIUM TERRACE HOUSE</p>
           <h1>
             설악의 능선과
             <br />
@@ -720,33 +727,48 @@ function Hero() {
             <br />
             <span>THE 228</span>
           </h1>
-          <p className="hero-copy">
+          <p>
             속초 중앙하이츠 THE 228을 휴양지의 하루처럼 읽는 새로운 랜딩페이지.
             숲, 바다, 테라스가 이어지는 228세대의 리조트 라이프를 소개합니다.
           </p>
-          <div className="hero-actions">
+          <div className="lux-hero-actions">
             <button className="btn btn-gold" onClick={() => scrollToHash("#lead")}>
               방문예약 <ArrowRight size={18} />
             </button>
             <button className="btn btn-ghost" onClick={() => scrollToHash("#summary")}>
-              매거진 둘러보기
+              입지 자세히 보기
             </button>
           </div>
         </div>
-        <aside className="resort-note" aria-label="리조트 매거진 노트">
-          <span>Issue 02</span>
-          <strong>Seorak, Sea, Terrace</strong>
-          <p>창밖의 산세와 바다 가까운 생활, 그리고 나만의 야외 거실을 한 권의 여행지처럼 구성했습니다.</p>
-          <img src="/assets/summary-terrace-view.jpg" alt="속초 중앙하이츠 THE 228 테라스 조망 이미지" />
+
+        <aside className="lux-hero-panel" aria-label="핵심 프리미엄 요약">
+          <span>THE VALUE</span>
+          <strong>228세대의 낮은 밀도와 테라스 라이프</strong>
+          <dl>
+            <div>
+              <dt>총 세대수</dt>
+              <dd>228세대</dd>
+            </div>
+            <div>
+              <dt>주택형</dt>
+              <dd>84~101㎡</dd>
+            </div>
+            <div>
+              <dt>접근성</dt>
+              <dd>속초IC 약 1km</dd>
+            </div>
+          </dl>
         </aside>
       </div>
-      <div className="hero-statbar" aria-label="핵심 사업 정보">
-        {heroStats.map(({ value, label, detail, icon: Icon }) => (
-          <article key={label}>
-            <Icon size={30} aria-hidden="true" />
-            <strong>{value}</strong>
-            <span>{label}</span>
-            <p>{detail}</p>
+
+      <div className="lux-feature-strip" aria-label="핵심 사업 정보">
+        {heroStats.map(({ value, detail, icon: Icon }) => (
+          <article key={value}>
+            <Icon size={28} aria-hidden="true" />
+            <div>
+              <strong>{value}</strong>
+              <span>{detail}</span>
+            </div>
           </article>
         ))}
       </div>
@@ -756,26 +778,45 @@ function Hero() {
 
 function Summary() {
   return (
-    <section className="section summary" id="summary">
-      <div className="section-grid">
-        <div className="section-copy">
-          <span className="section-label">RESORT LIFE</span>
+    <section className="lux-section lux-about" id="summary">
+      <div className="lux-section-inner lux-about-grid">
+        <div className="lux-copy-block">
+          <span className="section-label">ABOUT THE 228</span>
           <h2>집이라기보다, 자주 돌아오고 싶은 속초의 한 장면</h2>
           <p>
             설악의 능선이 하루의 배경이 되고, 동해의 바람이 테라스까지 닿는 곳.
             속초 중앙하이츠 THE 228은 주거와 휴식의 경계를 부드럽게 잇는 저층형 테라스 하우스입니다.
           </p>
-          <div className="summary-metrics">
-            <div><strong>228</strong><span>총 세대수</span></div>
-            <div><strong>14</strong><span>총 동수</span></div>
-            <div><strong>84~101㎡</strong><span>주택형</span></div>
-            <div><strong>즉시</strong><span>입주 가능</span></div>
-          </div>
+          <button className="lux-outline-button" type="button" onClick={() => scrollToHash("#premium")}>
+            프리미엄 보기 <ArrowRight size={16} />
+          </button>
         </div>
-        <div className="summary-media">
-          <img src="/assets/Sokcho-life.png" alt="속초 중앙하이츠 THE 228 단지 조감도" />
-          <div className="media-caption">A LOW-RISE RESORT VILLAGE IN SOKCHO</div>
+
+        <div className="lux-about-list">
+          {premiumCards.map(({ title, body, icon: Icon }) => (
+            <article key={title}>
+              <Icon size={30} aria-hidden="true" />
+              <div>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </div>
+            </article>
+          ))}
         </div>
+      </div>
+
+      <div className="lux-image-row" aria-label="속초 중앙하이츠 THE 228 주요 이미지">
+        {[
+          { src: "/assets/complex-wide.jpg", title: "낮은 밀도" },
+          { src: "/assets/sea-mountain-panorama.jpg?v=20260526094252", title: "설악과 동해" },
+          { src: "/assets/summary-terrace-view.jpg", title: "테라스 하우스" },
+          { src: "/assets/interior-overview.jpg", title: "입체적 공간" },
+        ].map((item) => (
+          <figure key={item.title}>
+            <img src={item.src} alt={`${item.title} 이미지`} />
+            <figcaption>{item.title}</figcaption>
+          </figure>
+        ))}
       </div>
     </section>
   );
@@ -783,22 +824,30 @@ function Summary() {
 
 function Premium() {
   return (
-    <section className="section premium" id="premium">
-      <div className="section-heading">
-        <span className="section-label">TRAVEL NOTES</span>
+    <section className="lux-premium-band" id="premium">
+      <img src="/assets/summary-terrace-view.jpg" alt="속초 중앙하이츠 THE 228 테라스 하우스 조감 이미지" />
+      <div className="lux-premium-overlay" />
+      <div className="lux-premium-copy">
+        <span className="section-label">PREMIUM 01</span>
         <h2>주말의 여행감과 일상의 편의가 같은 주소 안에 있습니다</h2>
-        <p>입지, 자연, 생활 인프라, 특화 설계를 여행 매거진의 챕터처럼 가볍게 넘겨보세요.</p>
-      </div>
-      <div className="premium-grid">
-        {premiumCards.map(({ title, body, icon: Icon }) => (
-          <article className="premium-card" key={title}>
-            <Icon size={36} aria-hidden="true" />
-            <div>
-              <h3>{title}</h3>
-              <p>{body}</p>
-            </div>
-          </article>
-        ))}
+        <p>입지, 자연, 생활 인프라, 특화 설계를 고급 분양 랜딩의 흐름으로 다시 정돈했습니다.</p>
+        <div className="lux-premium-metrics">
+          <div>
+            <span>PRIVATE</span>
+            <strong>228</strong>
+            <em>총 세대수</em>
+          </div>
+          <div>
+            <span>TYPE</span>
+            <strong>84~101㎡</strong>
+            <em>다양한 주택형</em>
+          </div>
+          <div>
+            <span>ACCESS</span>
+            <strong>약 1km</strong>
+            <em>속초IC 접근성</em>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -806,27 +855,29 @@ function Premium() {
 
 function ValueSection() {
   return (
-    <section className="value-band">
-      <div className="section-heading inverse">
-        <span className="section-label">SCENES AROUND THE 228</span>
-        <h2>길, 산, 테라스가 하루의 리듬을 바꿉니다</h2>
-      </div>
-      <div className="value-cards">
-        {valueCards.map((card) => (
-          <article className="value-card" key={card.title}>
-            <img src={card.image} alt={`${card.title} 이미지`} />
-            <div>
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-      <div className="value-numbers" aria-label="프리미엄 요약 수치">
-        <div><strong>228</strong><span>세대</span></div>
-        <div><strong>84~101㎡</strong><span>주택형</span></div>
-        <div><strong>3면</strong><span>숲세권</span></div>
-        <div><strong>THE228</strong><span>브랜드</span></div>
+    <section className="lux-section lux-premium-icons">
+      <div className="lux-section-inner">
+        <div className="lux-section-heading">
+          <span className="section-label">PREMIUM 02</span>
+          <h2>희소한 입지가 선사하는 특별함</h2>
+          <p>속초IC, 설악과 동해, 테라스 특화 공간이 하나의 생활권 안에서 연결됩니다.</p>
+        </div>
+        <div className="lux-icon-grid">
+          {[
+            { icon: Train, title: "교통 프리미엄", body: premiumCards[0].body },
+            { icon: Mountain, title: "자연 프리미엄", body: premiumCards[1].body },
+            { icon: MapPin, title: "생활 프리미엄", body: premiumCards[2].body },
+            { icon: House, title: "공간 프리미엄", body: premiumCards[3].body },
+            { icon: Building2, title: "저층 단지", body: heroStats[1].detail },
+            { icon: Compass, title: "세컨드 라이프", body: heroStats[3].detail },
+          ].map(({ icon: Icon, title, body }) => (
+            <article key={title}>
+              <Icon size={34} aria-hidden="true" />
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -834,65 +885,29 @@ function ValueSection() {
 
 function MostValuableSection() {
   return (
-    <section className="most-valuable" id="valuable" aria-labelledby="valuable-title">
-      <div className="valuable-shell">
-        <div className="valuable-head">
+    <section className="lux-section lux-scenes" id="valuable" aria-labelledby="valuable-title">
+      <div className="lux-section-inner">
+        <div className="lux-scenes-head">
           <div>
-            <span>EDITORIAL PICKS</span>
-            <h2 id="valuable-title">Five Favorite Moments</h2>
+            <span className="section-label">SPACE & LOCATION</span>
+            <h2 id="valuable-title">공간의 품격을 높이는 장면들</h2>
           </div>
+          <p>
+            속초 중앙하이츠 THE 228의 입지, 조망, 테라스 특화 요소를 큰 이미지 중심으로 보여줍니다.
+          </p>
         </div>
-
-        <article className="valuable-hero">
-          <figure className="valuable-media">
-            <img src="/assets/complex-wide.jpg" alt="속초 중앙하이츠 THE 228 단지 조감도" />
-            <figcaption>CG 이미지</figcaption>
-          </figure>
-          <div className="valuable-hero-copy">
-            <span>LOW-RISE RESORT VILLAGE</span>
-            <h3>낮은 단지, 넓은 하늘, 테라스에서 시작되는 하루.</h3>
-            <p>
-              속초 최대규모 228세대의 테라스 하우스를 조망, 거실, 다이닝, 다락, 커뮤니티의 장면으로 다시 편집했습니다.
-              머무는 방식이 곧 가치가 되는 주거 경험을 확인하세요.
-            </p>
-          </div>
-        </article>
-
-        <div className="valuable-list">
-          {valuableFeatures.map((feature) => (
-            <article
-              className={`valuable-item image-${feature.imageSide} tone-${feature.tone}`}
-              key={feature.number}
-            >
-              <div className="valuable-copy">
-                <span>{feature.category}</span>
-                <h3>{feature.title}</h3>
-                <p>{feature.body}</p>
-                <div className="valuable-small-index">
-                  <strong>{feature.number}</strong>
-                  <em>{feature.label}</em>
-                </div>
+        <div className="lux-scene-grid">
+          {valueCards.map((card, index) => (
+            <article className={index === 0 ? "wide" : ""} key={card.title}>
+              <img src={card.image} alt={`${card.title} 이미지`} />
+              <div>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <h3>{card.title}</h3>
+                <p>{card.body}</p>
               </div>
-              {feature.images.length === 1 ? (
-                <figure className="valuable-media">
-                  <img src={feature.images[0].src} alt={`${feature.title} 이미지`} />
-                  <figcaption>{feature.images[0].caption}</figcaption>
-                </figure>
-              ) : (
-                <div className={`valuable-collage image-count-${feature.images.length}`} aria-label={`${feature.title} 이미지 모음`}>
-                  {feature.images.map((image) => (
-                    <figure className="valuable-media" key={image.src}>
-                      <img src={image.src} alt={image.caption} />
-                      <figcaption>{image.caption}</figcaption>
-                    </figure>
-                  ))}
-                </div>
-              )}
             </article>
           ))}
         </div>
-
-        <div className="valuable-footer-strip">SOKCHO JUNGANG HEIGHTS THE 228</div>
       </div>
     </section>
   );
@@ -900,28 +915,35 @@ function MostValuableSection() {
 
 function LifeSection() {
   return (
-    <section className="section life" id="life">
-      <div className="life-top">
-        <div className="section-copy">
-          <span className="section-label">STAY A WHILE</span>
+    <section className="lux-community" id="life">
+      <div className="lux-community-inner">
+        <div className="lux-community-copy">
+          <span className="section-label">COMMUNITY</span>
           <h2>테라스, 다락, 커뮤니티가 머무는 시간을 길게 만듭니다</h2>
           <p>
             낮은 밀도의 단지 안에서 가족의 취향이 자연스럽게 드러납니다.
             실내의 편안함과 야외의 개방감을 이어주는 장면들을 살펴보세요.
           </p>
+          <button className="lux-outline-button dark" type="button" onClick={() => scrollToHash("#lead")}>
+            방문 상담 예약 <ArrowRight size={16} />
+          </button>
         </div>
-        <img src="/assets/terrace-houses.jpg" alt="속초 중앙하이츠 THE 228 테라스 하우스 이미지" />
-      </div>
-      <div className="life-cards">
-        {lifeCards.map((card) => (
-          <article key={card.title}>
-            <img src={card.image} alt={`${card.title} 이미지`} />
-            <div>
-              <span>{card.title}</span>
-              <h3>{card.body}</h3>
-            </div>
-          </article>
-        ))}
+        <div className="lux-community-gallery">
+          {[
+            { title: lifeCards[0].title, body: lifeCards[0].body, image: "/assets/terrace-houses.jpg" },
+            { title: lifeCards[1].title, body: lifeCards[1].body, image: "/assets/community-main.jpg" },
+            { title: "LIVING ROOM", body: valuableFeatures[0].title, image: "/assets/valuable-02-living-room.png" },
+            { title: "SPECIAL SPACE", body: valuableFeatures[3].title, image: "/assets/valuable-05-study.jpg" },
+          ].map((card) => (
+            <article key={card.title}>
+              <img src={card.image} alt={`${card.title} 이미지`} />
+              <div>
+                <span>{card.title}</span>
+                <h3>{card.body}</h3>
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -933,6 +955,8 @@ function UnitPlan() {
   const [isLoftDetailVisible, setIsLoftDetailVisible] = useState(false);
   const unitKeys = useMemo(() => unitOrder, []);
   const unit = unitPlans[selected];
+  const currentPlanImage = unit.loftDetailImage && isPlanVisible && isLoftDetailVisible ? unit.loftDetailImage : unit.image;
+  const currentPlanLabel = unit.loftDetailImage && isPlanVisible && isLoftDetailVisible ? "다락 상세정보" : "기본 평면도";
 
   useEffect(() => {
     setIsLoftDetailVisible(false);
@@ -957,98 +981,71 @@ function UnitPlan() {
   };
 
   return (
-    <section className="section unit" id="unit">
-      <div className="section-heading">
-        <span className="section-label">UNIT PLAN</span>
-        <h2>84㎡부터 101㎡까지, 테라스와 다락을 더한 실용적 공간 설계</h2>
-      </div>
-      <div className="unit-layout">
-        <div className="unit-tabs" role="tablist" aria-label="세대 타입 선택">
-          {unitKeys.map((key) => (
-            <button
-              key={key}
-              className={key === selected ? "active" : ""}
-              onClick={() => {
-                setSelected(key);
-                setIsPlanVisible(false);
-                setIsLoftDetailVisible(false);
-              }}
-              role="tab"
-              aria-selected={key === selected}
-            >
-              {unitPlans[key].label}
-            </button>
-          ))}
-        </div>
-        <div className="unit-card">
-          <div className="unit-copy">
-            <span>{unit.households}</span>
-            <h3>{unit.label} TYPE</h3>
-            <p>{unit.title}</p>
-            <small>{unit.body}</small>
-            <button
-              className="link-button"
-              onClick={handleShowPlan}
-              aria-controls="unit-plan-detail"
-              aria-expanded={isPlanVisible}
-            >
-              상세보기 <ChevronRight size={16} />
-            </button>
+    <section className="lux-section lux-unit" id="unit">
+      <div className="lux-section-inner">
+        <div className="lux-scenes-head">
+          <div>
+            <span className="section-label">UNIT PLAN</span>
+            <h2>84㎡부터 101㎡까지, 테라스와 다락을 더한 실용적 공간 설계</h2>
           </div>
-          <div
-            className={`unit-image ${isPlanVisible ? "is-visible" : "is-placeholder"}`}
-            id="unit-plan-detail"
-            aria-label={isPlanVisible ? `${unit.label} 평면도` : `${unit.label} 세대 평면 정보`}
-          >
-            {isPlanVisible ? (
-              unit.loftDetailImage ? (
-                <figure
-                  className={`unit-plan-cycle ${isLoftDetailVisible ? "show-loft" : ""}`}
-                  aria-label={`${unit.label} ${isLoftDetailVisible ? "다락 상세정보" : "기본 평면도"} 자동 전환`}
-                  aria-live="polite"
-                >
-                  <img
-                    className="unit-plan-main"
-                    src={unit.image}
-                    alt={`${unit.label} 기본 평면도`}
-                    aria-hidden={isLoftDetailVisible}
-                  />
-                  <img
-                    className="unit-plan-loft"
-                    src={unit.loftDetailImage}
-                    alt={`${unit.label} 다락 상세정보`}
-                    aria-hidden={!isLoftDetailVisible}
-                  />
-                  <figcaption>
-                    <span className="main-label">기본 평면도</span>
-                    <span className="loft-label">다락 상세정보</span>
-                  </figcaption>
-                </figure>
-              ) : (
-                <img src={unit.image} alt={`${unit.label} 평면도`} />
-              )
-            ) : (
-              <div className="unit-placeholder">
-                <div className="unit-summary-head">
-                  <House size={34} />
-                  <div>
-                    <span>요약정보</span>
-                    <strong>{unit.label} TYPE</strong>
+          <p>선택한 타입의 평면과 요약 정보를 한 화면에서 확인할 수 있습니다.</p>
+        </div>
+
+        <div className="unit-layout lux-unit-layout">
+          <div className="unit-tabs lux-unit-tabs" role="tablist" aria-label="세대 타입 선택">
+            {unitKeys.map((key) => (
+              <button
+                key={key}
+                className={key === selected ? "active" : ""}
+                onClick={() => {
+                  setSelected(key);
+                  setIsPlanVisible(false);
+                  setIsLoftDetailVisible(false);
+                }}
+                role="tab"
+                aria-selected={key === selected}
+              >
+                {unitPlans[key].label}
+              </button>
+            ))}
+          </div>
+
+          <div className="unit-card lux-unit-card">
+            <div className="unit-copy lux-unit-copy">
+              <span>{unit.households}</span>
+              <h3>{unit.label} TYPE</h3>
+              <p>{unit.title}</p>
+              <small>{unit.body}</small>
+              <dl className="unit-summary-grid lux-unit-summary">
+                {unit.summary.slice(0, 4).map((item) => (
+                  <div key={item.label}>
+                    <dt>{item.label}</dt>
+                    <dd>
+                      {item.value}
+                      {item.note && <small>{item.note}</small>}
+                    </dd>
                   </div>
-                </div>
-                <dl className="unit-summary-grid">
-                  {unit.summary.map((item) => (
-                    <div key={item.label}>
-                      <dt>{item.label}</dt>
-                      <dd>
-                        {item.value}
-                        {item.note && <small>{item.note}</small>}
-                      </dd>
-                    </div>
-                  ))}
-                </dl>
-              </div>
-            )}
+                ))}
+              </dl>
+              <button
+                className="link-button lux-unit-more"
+                onClick={handleShowPlan}
+                aria-controls="unit-plan-detail"
+                aria-expanded={isPlanVisible}
+              >
+                {unit.loftDetailImage ? "다락 상세 전환" : "평면 크게 보기"} <ChevronRight size={16} />
+              </button>
+            </div>
+
+            <figure
+              className="unit-image lux-unit-image is-visible"
+              id="unit-plan-detail"
+              aria-label={`${unit.label} ${currentPlanLabel}`}
+              aria-live="polite"
+            >
+              <img src={currentPlanImage} alt={`${unit.label} ${currentPlanLabel}`} />
+              <figcaption>{currentPlanLabel}</figcaption>
+            </figure>
           </div>
         </div>
       </div>
@@ -1117,8 +1114,8 @@ function LeadSection() {
   }
 
   return (
-    <section className="lead" id="lead">
-      <div className="lead-copy">
+    <section className="lead lux-lead" id="lead">
+      <div className="lead-copy lux-lead-copy">
         <span className="section-label">CONTACT</span>
         <h2>이번 주말, 속초의 다음 주소를 직접 확인해 보세요</h2>
         <p>리조트처럼 머무는 테라스 라이프가 궁금하다면 방문 상담 일정을 남겨주세요.</p>
@@ -1134,7 +1131,7 @@ function LeadSection() {
           />
         </figure>
       </div>
-      <form className="lead-form" onSubmit={handleSubmit}>
+      <form className="lead-form lux-lead-form" onSubmit={handleSubmit}>
         <label>
           이름
           <input name="name" placeholder="홍길동" required />

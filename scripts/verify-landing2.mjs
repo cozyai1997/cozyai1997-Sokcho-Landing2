@@ -37,8 +37,10 @@ if (packageJson.name !== "sokcho-landing2-resort-magazine") {
 
 expectIncludes("index.html", read("index.html"), "Sokcho-Landing2");
 expectIncludes("src/App.tsx", read("src/App.tsx"), "landing2-resort-magazine");
-expectIncludes("src/App.tsx", read("src/App.tsx"), "resort-note");
-expectIncludes("src/styles.css", read("src/styles.css"), ".resort-note");
+expectIncludes("src/App.tsx", read("src/App.tsx"), "lux-hero");
+expectIncludes("src/App.tsx", read("src/App.tsx"), "lux-premium-band");
+expectIncludes("src/styles.css", read("src/styles.css"), ".lux-hero");
+expectIncludes("src/styles.css", read("src/styles.css"), ".lux-premium-band");
 expectIncludes("api/leads.ts", read("api/leads.ts"), 'const tableName = "sokcho_landing2_leads"');
 expectIncludes("api/leads.ts", read("api/leads.ts"), 'source: "landing2-resort-magazine"');
 expectIncludes("api/_sms.ts", read("api/_sms.ts"), 'sokcho_landing2_sms_settings');
