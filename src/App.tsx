@@ -1765,36 +1765,19 @@ export function App() {
       <FloatingQuick />
       {showAdPopup && <WebAdPopup onClose={() => setShowAdPopup(false)} onHideToday={handleHideAdToday} />}
       {showLaunchVideo && <LaunchVideoModal onClose={() => setShowLaunchVideo(false)} />}
-      <footer className="site-footer">
-        <div className="footer-inner">
+      <footer className="site-footer simple-footer">
+        <div className="simple-footer-inner">
           <img className="footer-logo" src="/assets/Sokcho-logo.png" alt="속초 중앙하이츠 THE 228" />
 
-          <dl className="footer-info">
-            <div>
-              <dt><MapPin size={21} /> 현장주소</dt>
-              <dd>강원도 속초시 장사동 661</dd>
-            </div>
-            <div>
-              <dt><ShieldCheck size={20} /> 시행수탁자</dt>
-              <dd>교보자산신탁(주)</dd>
-            </div>
-            <div>
-              <dt><HardHat size={21} /> 시공</dt>
-              <dd>대신건설(주)</dd>
-            </div>
-            <div>
-              <dt><Building2 size={20} /> 시행위탁자</dt>
-              <dd>천마이엔씨건설(주)</dd>
-            </div>
-          </dl>
-
-          <div className="footer-contact">
-            <span>방문예약·문의</span>
+          <div className="simple-footer-phone">
+            <span>대표/문의</span>
             <a href={inquiryPhoneHref}>{inquiryPhone}</a>
           </div>
 
-          <div className="footer-notice">
-            <p>* 본 홈페이지의 내용은 소비자의 이해를 돕기 위한 것으로<br />실제와 차이가 있을 수 있으며, 견본주택을 방문하셔서 직접 확인하시기 바랍니다.</p>
+          <div className="simple-footer-copy">
+            <p>본 홈페이지의 내용은 소비자의 이해를 돕기 위한 것으로 실제와 차이가 있을 수 있습니다.</p>
+            <p>현장주소 : 강원도 속초시 장사동 661 | 시행수탁자 : 교보자산신탁(주) | 시공 : 대신건설(주) | 시행위탁자 : 천마이엔씨건설(주)</p>
+            <p>견본주택을 방문하셔서 직접 확인하시기 바랍니다.</p>
             <p>Copyrights © 2026 속초 중앙하이츠 THE228. All Rights Reserved.</p>
           </div>
         </div>
