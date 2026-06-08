@@ -15,10 +15,8 @@ import {
   Mountain,
   Phone,
   PlayCircle,
-  Plus,
   RefreshCw,
   Save,
-  Share2,
   ShieldCheck,
   Trash2,
   Train,
@@ -1260,75 +1258,27 @@ function LeadSection() {
 }
 
 function FloatingQuick() {
-  const [isQuickOpen, setIsQuickOpen] = useState(false);
-  const [shareMessage, setShareMessage] = useState("");
-
-  const handleShare = async () => {
-    const shareUrl = window.location.href.split("#")[0];
-    const shareData = {
-      title: "속초 중앙하이츠 THE 228",
-      text: "속초 중앙하이츠 THE 228 방문예약 안내",
-      url: shareUrl,
-    };
-
-    try {
-      if (navigator.share) {
-        await navigator.share(shareData);
-        setShareMessage("공유 완료");
-      } else if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(shareUrl);
-        setShareMessage("URL 복사 완료");
-      } else {
-        setShareMessage("URL 복사를 지원하지 않습니다");
-      }
-    } catch {
-      setShareMessage("공유 취소");
-    }
-
-    window.setTimeout(() => setShareMessage(""), 1800);
-  };
-
   return (
-    <div className={`floating-quick ${isQuickOpen ? "is-open" : ""}`} aria-label="빠른 메뉴">
-      <div className="floating-expand" id="floating-expand-menu" aria-hidden={!isQuickOpen}>
-        <a className="floating-action" href={inquiryPhoneHref} aria-label="전화 상담">
-          <Phone size={25} />
-          <span>전화</span>
-        </a>
-        <a className="floating-action" href={naverMapUrl} target="_blank" rel="noreferrer" aria-label="네이버 지도 열기">
-          <MapPin size={25} />
-          <span>위치</span>
-        </a>
-        <button className="floating-action" type="button" onClick={handleShare} aria-label="URL 공유">
-          <Share2 size={25} />
-          <span>공유</span>
-        </button>
-      </div>
-      {shareMessage && (
-        <span className="floating-share-status" role="status">
-          {shareMessage}
-        </span>
-      )}
+    <nav className="floating-quick" aria-label="하단 빠른 메뉴">
+      <a className="floating-bar-action" href={naverMapUrl} target="_blank" rel="noreferrer" aria-label="홍보관 위치보기">
+        <MapPin size={22} />
+        <span>홍보관 위치보기</span>
+      </a>
+      <a className="floating-bar-brand" href="#top" aria-label="속초 중앙하이츠 THE 228 홈">
+        <strong>Sokcho THE 228</strong>
+        <span>속초 중앙하이츠</span>
+      </a>
       <button
-        className="floating-toggle"
-        type="button"
-        onClick={() => setIsQuickOpen((open) => !open)}
-        aria-controls="floating-expand-menu"
-        aria-expanded={isQuickOpen}
-        aria-label={isQuickOpen ? "빠른 메뉴 닫기" : "빠른 메뉴 열기"}
-      >
-        {isQuickOpen ? <X size={30} /> : <Plus size={32} />}
-      </button>
-      <button
-        className="floating-reservation"
+        className="floating-bar-action floating-bar-reservation"
         type="button"
         onClick={() => scrollToHash("#lead")}
-        aria-label="방문예약"
+        aria-label="홍보관 방문 예약하기"
       >
-        <span>방문예약</span>
-        <ChevronRight size={18} />
+        <CalendarDays size={22} />
+        <span>홍보관 방문 예약하기</span>
+        <ChevronRight className="floating-bar-chevron" size={17} />
       </button>
-    </div>
+    </nav>
   );
 }
 
