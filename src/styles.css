@@ -3927,14 +3927,71 @@ body {
 .site-footer {
   background: var(--navy-900);
   color: rgba(255, 255, 255, 0.78);
+  justify-content: flex-start;
+  min-height: auto;
+  padding: 92px 42px 170px;
+  text-align: left;
+}
+
+.site-footer .footer-inner {
+  align-items: flex-start;
+  margin: 0 auto;
+  max-width: 1180px;
+  width: 100%;
 }
 
 .site-footer .footer-logo {
   filter: brightness(0) invert(1);
+  margin-bottom: 38px;
+  width: min(300px, 72vw);
+}
+
+.site-footer .footer-info {
+  gap: 16px;
+  width: min(100%, 560px);
+}
+
+.site-footer .footer-info div {
+  justify-content: flex-start;
+}
+
+.site-footer .footer-info dt {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 850;
+}
+
+.site-footer .footer-info dt svg {
+  color: var(--gold-strong);
+}
+
+.site-footer .footer-info dd {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 650;
+}
+
+.site-footer .footer-info dd::before {
+  color: var(--gold-strong);
+}
+
+.site-footer .footer-contact {
+  color: rgba(255, 255, 255, 0.92);
+  margin-top: 42px;
+  text-align: left;
+}
+
+.site-footer .footer-contact span {
+  color: rgba(255, 255, 255, 0.82);
 }
 
 .site-footer .footer-contact a {
   color: var(--gold-strong);
+}
+
+.site-footer .footer-notice {
+  color: rgba(255, 255, 255, 0.72);
+  margin-top: 42px;
+  max-width: 720px;
+  text-align: left;
 }
 
 @media (max-width: 1180px) {
