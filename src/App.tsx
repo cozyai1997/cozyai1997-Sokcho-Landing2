@@ -4,21 +4,25 @@ import {
   Building2,
   CalendarDays,
   CheckCircle2,
+  ChevronDown,
   ChevronRight,
   Clock,
   Compass,
   Download,
+  Gift,
   HardHat,
   House,
   MapPin,
   MessageSquare,
   Mountain,
+  Percent,
   Phone,
   RefreshCw,
   Save,
   ShieldCheck,
   Trash2,
   Train,
+  UserRound,
   X,
 } from "lucide-react";
 import { FormEvent, useEffect, useMemo, useState } from "react";
@@ -1148,80 +1152,158 @@ function LeadSection() {
     <section className="lead lux-lead" id="lead">
       <div className="lead-copy lux-lead-copy">
         <span className="section-label">CONTACT</span>
-        <h2>이번 주말, 속초의 다음 주소를 직접 확인해 보세요</h2>
-        <p>리조트처럼 머무는 테라스 라이프가 궁금하다면 방문 상담 일정을 남겨주세요.</p>
+        <h2>
+          이번 주말,
+          <br />
+          <em>속초의 다음 주거</em>를
+          <br />
+          직접 확인해 보세요
+        </h2>
+        <p>
+          리조트처럼 머무는 테라스 라이프가 궁금하다면
+          <br />
+          방문 상담 일정을 남겨주세요.
+        </p>
         <div className="lead-points">
-          <span><Phone size={18} /> {inquiryPhone}</span>
-          <span><CalendarDays size={18} /> 방문 상담 예약</span>
-          <span><ShieldCheck size={18} /> 개인정보 동의 후 접수</span>
+          <span>
+            <Gift size={28} />
+            방문 상담 시
+            <strong>사은품 증정</strong>
+          </span>
+          <span>
+            <Percent size={28} />
+            다양한 금융 혜택
+            <strong>상담 가능</strong>
+          </span>
+          <span>
+            <CalendarDays size={28} />
+            원하는 날짜에
+            <strong>방문 예약 가능</strong>
+          </span>
         </div>
-        <figure className="lead-benefit-visual">
-          <img
-            src="/assets/gift.png?v=20260527"
-            alt="방문 상담만 해도 사은품 증정, 방문 고객 한정 혜택 안내"
-          />
-        </figure>
-      </div>
-      <form className="lead-form lux-lead-form" onSubmit={handleSubmit}>
-        <label>
-          이름
-          <input name="name" placeholder="홍길동" required />
-        </label>
-        <label>
-          연락처
-          <input name="phone" placeholder="010-0000-0000" required inputMode="tel" />
-        </label>
-        <div className="schedule-field">
-          <div className="schedule-grid">
-            <label>
-              방문 날짜
-              <input
-                name="visitDate"
-                type="date"
-                min={todayDateValue}
-                value={visitDate}
-                onChange={(event) => {
-                  setVisitDate(event.currentTarget.value);
-                  setSubmitted(false);
-                }}
-                required
-              />
-            </label>
-            <div className="time-field">
-              <span>방문 시간</span>
-              <input name="visitTime" type="hidden" value={visitTime} readOnly />
-              <button
-                className={`time-select-button${visitTime ? " selected" : ""}`}
-                type="button"
-                aria-haspopup="dialog"
-                aria-expanded={isTimeModalOpen}
-                onClick={() => {
-                  setDraftVisitTime(visitTime);
-                  setIsTimeModalOpen(true);
-                  setSubmitted(false);
-                }}
-              >
-                <span>{selectedVisitTimeLabel || "시간 선택"}</span>
-                <Clock size={18} />
-              </button>
-            </div>
+        <div className="lead-contact-steps" aria-label="방문 상담 절차">
+          <div>
+            <span><Phone size={22} /></span>
+            <p>
+              <strong>{inquiryPhone}</strong>
+              상담 문의
+            </p>
+          </div>
+          <div>
+            <span><CalendarDays size={22} /></span>
+            <p>
+              <strong>방문 상담 예약</strong>
+              원하는 날짜와 시간 선택
+            </p>
+          </div>
+          <div>
+            <span><ShieldCheck size={22} /></span>
+            <p>
+              <strong>개인정보 동의 후 접수</strong>
+              안전하게 정보를 보호합니다.
+            </p>
           </div>
         </div>
-        <label>
-          관심 타입
-          <select name="type" defaultValue="84A">
-            {leadTypeOptions.map((type) => (
-              <option key={type}>{type}</option>
-            ))}
-          </select>
-        </label>
-        <label className="agree">
-          <input type="checkbox" required />
-          개인정보 수집 및 이용에 동의합니다.
-        </label>
-        <button className="btn btn-gold" type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "저장 중" : "방문예약 등록"} <ArrowRight size={18} />
-        </button>
+      </div>
+      <form className="lead-form lux-lead-form" onSubmit={handleSubmit}>
+        <div className="lead-form-head">
+          <CalendarDays size={32} />
+          <h3>방문 상담 예약</h3>
+          <p>
+            원하는 날짜와 시간을 남겨주시면
+            <br />
+            담당자가 빠르게 안내해 드리겠습니다.
+          </p>
+        </div>
+        <div className="lead-form-fields">
+          <label>
+            이름
+            <span className="lead-input-control">
+              <UserRound size={18} />
+              <input name="name" placeholder="이름을 입력해주세요" required />
+            </span>
+          </label>
+          <label>
+            연락처
+            <span className="lead-input-control">
+              <Phone size={18} />
+              <input name="phone" placeholder="010-0000-0000" required inputMode="tel" />
+            </span>
+          </label>
+          <div className="schedule-field">
+            <div className="schedule-grid">
+              <label>
+                방문 날짜
+                <span className="lead-input-control">
+                  <CalendarDays size={17} />
+                  <input
+                    name="visitDate"
+                    type="date"
+                    min={todayDateValue}
+                    value={visitDate}
+                    onChange={(event) => {
+                      setVisitDate(event.currentTarget.value);
+                      setSubmitted(false);
+                    }}
+                    required
+                  />
+                </span>
+              </label>
+              <div className="time-field">
+                <span>방문 시간</span>
+                <input name="visitTime" type="hidden" value={visitTime} readOnly />
+                <button
+                  className={`time-select-button${visitTime ? " selected" : ""}`}
+                  type="button"
+                  aria-haspopup="dialog"
+                  aria-expanded={isTimeModalOpen}
+                  onClick={() => {
+                    setDraftVisitTime(visitTime);
+                    setIsTimeModalOpen(true);
+                    setSubmitted(false);
+                  }}
+                >
+                  <span>
+                    <Clock size={18} />
+                    {selectedVisitTimeLabel || "시간 선택"}
+                  </span>
+                  <ChevronDown size={18} />
+                </button>
+              </div>
+            </div>
+          </div>
+          <label>
+            관심 타입
+            <span className="lead-select-control">
+              <select name="type" defaultValue="84A">
+                <option value="">관심 타입을 선택해주세요</option>
+                {leadTypeOptions.map((type) => (
+                  <option key={type}>{type}</option>
+                ))}
+              </select>
+              <ChevronDown size={18} />
+            </span>
+          </label>
+          <div className="lead-agree-row">
+            <label className="agree">
+              <input type="checkbox" required />
+              <span>개인정보 수집 및 이용에 동의합니다.</span>
+            </label>
+            <button type="button">자세히 보기</button>
+          </div>
+          <button className="btn btn-gold" type="submit" disabled={isSubmitting}>
+            <CalendarDays size={18} />
+            {isSubmitting ? "저장 중" : "상담 예약하고 혜택 확인하기"}
+            <ArrowRight size={20} />
+          </button>
+        </div>
+        <div className="lead-form-benefit">
+          <span><Gift size={24} /></span>
+          <p>
+            <strong>방문 상담 시 특별 혜택을 제공합니다.</strong>
+            사은품 증정 · 금융 혜택 상담 · 입주 정보 안내
+          </p>
+        </div>
         {isTimeModalOpen && (
           <div
             className="time-modal"
