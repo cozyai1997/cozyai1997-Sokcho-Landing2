@@ -14,7 +14,6 @@ import {
   MessageSquare,
   Mountain,
   Phone,
-  PlayCircle,
   RefreshCw,
   Save,
   ShieldCheck,
@@ -198,7 +197,7 @@ const lifeCards = [
   {
     title: "TERRACE HOURS",
     body: "아침의 커피, 오후의 독서, 저녁의 바람을 담는 테라스와 다락",
-    image: "/assets/interior-overview.jpg",
+    image: "/assets/terrace-hours-courtyard.jpg",
   },
   {
     title: "QUIET COMMUNITY",
@@ -380,7 +379,7 @@ const unitPlans: Record<UnitKey, UnitPlanInfo> = {
 const unitOrder: UnitKey[] = ["84A", "84B", "84C", "84D", "84E", "84F", "84G", "93", "98", "101A", "101B"];
 const leadTypeOptions = [...unitOrder, "상담 후 결정"];
 const launchVideoUrl = "https://www.youtube.com/embed/zlkLa8TpfUI?autoplay=1&mute=1&playsinline=1&rel=0";
-const inquiryPhone = "010-7939-7089";
+const inquiryPhone = "1544-7006";
 const inquiryPhoneHref = `tel:${inquiryPhone.replace(/-/g, "")}`;
 const naverMapUrl = "https://naver.me/xFLzjQKa";
 const leadStorageKey = "sokcho-landing2-leads";
@@ -679,7 +678,7 @@ async function saveSmsSettings(settings: SmsSettings): Promise<SmsSettings> {
   }
 }
 
-function Header({ onUnitVideoOpen }: { onUnitVideoOpen: () => void }) {
+function Header() {
   return (
     <header className="site-header lux-header">
       <a className="brand lux-brand" href="#top" aria-label="속초 중앙하이츠 THE 228 홈">
@@ -697,14 +696,10 @@ function Header({ onUnitVideoOpen }: { onUnitVideoOpen: () => void }) {
         ))}
       </nav>
       <div className="lux-header-actions">
-        <a className="lux-header-phone" href={inquiryPhoneHref} aria-label="전화 상담">
-          <Phone size={16} />
+        <a className="header-cta header-video" href={inquiryPhoneHref} aria-label={`전화 상담 ${inquiryPhone}`}>
+          <Phone size={17} />
           {inquiryPhone}
         </a>
-        <button className="header-cta header-video" type="button" onClick={onUnitVideoOpen} aria-label="유니트 영상 보기">
-          <PlayCircle size={17} />
-          유니트 영상
-        </button>
       </div>
     </header>
   );
@@ -928,7 +923,7 @@ function LifeSection() {
         </div>
         <div className="lux-community-gallery">
           {[
-            { title: lifeCards[0].title, body: lifeCards[0].body, image: "/assets/terrace-houses.jpg" },
+            { title: lifeCards[0].title, body: lifeCards[0].body, image: lifeCards[0].image },
             { title: lifeCards[1].title, body: lifeCards[1].body, image: "/assets/community-main.jpg" },
             { title: "LIVING ROOM", body: valuableFeatures[0].title, image: "/assets/valuable-02-living-room.png" },
             { title: "SPECIAL SPACE", body: valuableFeatures[3].title, image: "/assets/valuable-05-study.jpg" },
@@ -1751,7 +1746,7 @@ export function App() {
 
   return (
     <>
-      <Header onUnitVideoOpen={() => setShowLaunchVideo(true)} />
+      <Header />
       <main>
         <Hero />
         <Summary />
