@@ -6,6 +6,7 @@ import {
   smsSettingsTableName,
   toSmsSettings,
 } from "./_sms.js";
+import { requireAdminAuth } from "./_admin-auth.js";
 import { getSupabaseClient, readPayload, type VercelRequest, type VercelResponse } from "./_supabase.js";
 
 function parseSettingsPayload(payload: unknown) {
@@ -37,6 +38,16 @@ export default async function handler(request: VercelRequest, response: VercelRe
   response.setHeader("Content-Type", "application/json; charset=utf-8");
 
   try {
+    if (request.method !== "GET" && request.method !== "PUT") {
+      response.setHeader("Allow", "GET, PUT");
+      response.status(405).json({ message: "허용되지 않는 요청입니다." });
+      return;
+    }
+
+    if (!requireAdminAuth(request, response)) {
+      return;
+    }
+
     const supabase = getSupabaseClient();
 
     if (request.method === "GET") {
@@ -86,8 +97,6 @@ export default async function handler(request: VercelRequest, response: VercelRe
       return;
     }
 
-    response.setHeader("Allow", "GET, PUT");
-    response.status(405).json({ message: "허용되지 않는 요청입니다." });
   } catch (error) {
     response.status(500).json({
       message: error instanceof Error ? error.message : "문자 설정 처리 중 오류가 발생했습니다.",

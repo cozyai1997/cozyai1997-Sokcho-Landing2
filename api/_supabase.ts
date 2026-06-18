@@ -3,6 +3,7 @@ import { createClient } from "@supabase/supabase-js";
 export type VercelRequest = {
   method?: string;
   body?: unknown;
+  headers?: Record<string, string | string[] | undefined>;
 };
 
 export type VercelResponse = {

@@ -384,6 +384,11 @@ const inquiryPhoneHref = `tel:${inquiryPhone.replace(/-/g, "")}`;
 const naverMapUrl = "https://naver.me/xFLzjQKa";
 const leadStorageKey = "sokcho-landing2-leads";
 const smsSettingsStorageKey = "sokcho-landing2-sms-settings";
+const adminAuthStorageKey = "sokcho-landing2-admin-auth";
+const adminCredentials = {
+  username: "admin",
+  password: "a1234!",
+};
 const adPopupStorageKey = "sokcho-landing2-web-ad-hidden-date";
 const webAdBannerSrc = "/assets/web-ad-banner.png?v=20260527";
 const duplicateReservationMessage = "이미 방문예약 접수된 고객입니다.";
@@ -455,9 +460,37 @@ function writeLocalSmsSettings(settings: SmsSettings) {
   window.localStorage.setItem(smsSettingsStorageKey, JSON.stringify(settings));
 }
 
+function getAdminAuthHeaders() {
+  return {
+    Authorization: `Basic ${window.btoa(`${adminCredentials.username}:${adminCredentials.password}`)}`,
+  };
+}
+
+function hasAdminSession() {
+  try {
+    return window.sessionStorage.getItem(adminAuthStorageKey) === "authenticated";
+  } catch {
+    return false;
+  }
+}
+
+function setAdminSession(isAuthenticated: boolean) {
+  try {
+    if (isAuthenticated) {
+      window.sessionStorage.setItem(adminAuthStorageKey, "authenticated");
+    } else {
+      window.sessionStorage.removeItem(adminAuthStorageKey);
+    }
+  } catch {
+    // Admin login still works for the current render even if storage is blocked.
+  }
+}
+
 async function fetchLeads(): Promise<LeadSubmission[]> {
   try {
-    const response = await fetch("/api/leads");
+    const response = await fetch("/api/leads", {
+      headers: getAdminAuthHeaders(),
+    });
     if (!response.ok) {
       throw new Error("API unavailable");
     }
@@ -513,7 +546,10 @@ async function deleteLeads(ids?: string[]) {
   const targetIds = ids?.filter(Boolean) ?? [];
   const response = await fetch("/api/leads", {
     body: targetIds.length > 0 ? JSON.stringify({ ids: targetIds }) : undefined,
-    headers: targetIds.length > 0 ? { "Content-Type": "application/json" } : undefined,
+    headers: {
+      ...getAdminAuthHeaders(),
+      ...(targetIds.length > 0 ? { "Content-Type": "application/json" } : {}),
+    },
     method: "DELETE",
   });
 
@@ -644,7 +680,9 @@ function shouldShowWebAdPopup() {
 
 async function fetchSmsSettings(): Promise<SmsSettings> {
   try {
-    const response = await fetch("/api/sms-template");
+    const response = await fetch("/api/sms-template", {
+      headers: getAdminAuthHeaders(),
+    });
     if (!response.ok) {
       throw new Error("API unavailable");
     }
@@ -661,7 +699,10 @@ async function saveSmsSettings(settings: SmsSettings): Promise<SmsSettings> {
   try {
     const response = await fetch("/api/sms-template", {
       body: JSON.stringify(normalized),
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        ...getAdminAuthHeaders(),
+        "Content-Type": "application/json",
+      },
       method: "PUT",
     });
 
@@ -885,9 +926,6 @@ function MostValuableSection() {
             <span className="section-label">SPACE & LOCATION</span>
             <h2 id="valuable-title">공간의 품격을 높이는 장면들</h2>
           </div>
-          <p>
-            속초 중앙하이츠 THE 228의 입지, 조망, 테라스 특화 요소를 큰 이미지 중심으로 보여줍니다.
-          </p>
         </div>
         <div className="lux-scene-grid">
           {valueCards.map((card, index) => (
@@ -1277,7 +1315,70 @@ function FloatingQuick() {
   );
 }
 
+function AdminLogin({ onLogin }: { onLogin: () => void }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    if (username.trim() === adminCredentials.username && password === adminCredentials.password) {
+      setAdminSession(true);
+      setError("");
+      onLogin();
+      return;
+    }
+
+    setError("아이디 또는 비밀번호가 올바르지 않습니다.");
+  }
+
+  return (
+    <main className="admin-page admin-login-page">
+      <section className="admin-login-shell" aria-labelledby="admin-login-title">
+        <img className="admin-login-logo" src="/assets/Sokcho-logo.png" alt="속초 중앙하이츠 THE 228" />
+        <div className="admin-login-copy">
+          <span className="section-label">ADMIN LOGIN</span>
+          <h1 id="admin-login-title">관리자 로그인</h1>
+          <p>방문예약 접수 내역과 문자 설정을 확인하려면 로그인해주세요.</p>
+        </div>
+        <form className="admin-login-form" onSubmit={handleSubmit}>
+          <label>
+            아이디
+            <input
+              autoComplete="username"
+              value={username}
+              onChange={(event) => setUsername(event.target.value)}
+              placeholder="admin"
+            />
+          </label>
+          <label>
+            비밀번호
+            <input
+              autoComplete="current-password"
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+              placeholder="비밀번호"
+            />
+          </label>
+          {error && (
+            <p className="admin-login-error" role="alert">
+              {error}
+            </p>
+          )}
+          <button type="submit">로그인</button>
+        </form>
+        <button className="admin-login-home" type="button" onClick={() => { window.location.hash = "#top"; }}>
+          <ArrowLeft size={17} /> 현장 페이지로 돌아가기
+        </button>
+      </section>
+    </main>
+  );
+}
+
 function AdminPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState(() => hasAdminSession());
   const [leads, setLeads] = useState<LeadSubmission[]>([]);
   const [selectedLeadIds, setSelectedLeadIds] = useState<Set<string>>(() => new Set());
   const [isLoading, setIsLoading] = useState(true);
@@ -1306,6 +1407,15 @@ function AdminPage() {
     } finally {
       setIsSmsLoading(false);
     }
+  }
+
+  function handleLogout() {
+    setAdminSession(false);
+    setIsAuthenticated(false);
+    setLeads([]);
+    setSelectedLeadIds(new Set());
+    setAdminMessage("");
+    setSmsMessage("");
   }
 
   async function handleClear() {
@@ -1397,9 +1507,15 @@ function AdminPage() {
   }
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      setIsLoading(false);
+      setIsSmsLoading(false);
+      return;
+    }
+
     void loadLeads();
     void loadSmsTemplate();
-  }, []);
+  }, [isAuthenticated]);
 
   const latestLead = leads[0];
   const today = new Date().toDateString();
@@ -1407,6 +1523,10 @@ function AdminPage() {
   const smsPreview = useMemo(() => renderSmsPreview(smsSettings.bodyTemplate), [smsSettings.bodyTemplate]);
   const selectedCount = selectedLeadIds.size;
   const allVisibleSelected = leads.length > 0 && leads.every((lead) => selectedLeadIds.has(lead.id));
+
+  if (!isAuthenticated) {
+    return <AdminLogin onLogin={() => setIsAuthenticated(true)} />;
+  }
 
   return (
     <main className="admin-page">
@@ -1417,9 +1537,14 @@ function AdminPage() {
             <h1>관심고객 접수 관리</h1>
             <p>랜딩페이지에서 등록된 상담 신청 내역을 확인합니다.</p>
           </div>
-          <button className="admin-back" type="button" onClick={() => { window.location.hash = "#top"; }}>
-            <ArrowLeft size={18} /> 현장 페이지
-          </button>
+          <div className="admin-top-actions">
+            <button className="admin-back" type="button" onClick={() => { window.location.hash = "#top"; }}>
+              <ArrowLeft size={18} /> 현장 페이지
+            </button>
+            <button className="admin-logout" type="button" onClick={handleLogout}>
+              로그아웃
+            </button>
+          </div>
         </div>
 
         <div className="admin-stats">

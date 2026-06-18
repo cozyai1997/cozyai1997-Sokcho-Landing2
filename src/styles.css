@@ -1567,6 +1567,105 @@ a {
   padding: clamp(24px, 5vw, 58px);
 }
 
+.admin-login-page {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-login-shell {
+  background: #fff;
+  border: 1px solid rgba(7, 42, 70, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 22px 60px rgba(4, 33, 54, 0.14);
+  display: grid;
+  gap: 24px;
+  max-width: 460px;
+  padding: clamp(26px, 5vw, 42px);
+  width: min(100%, 460px);
+}
+
+.admin-login-logo {
+  height: auto;
+  width: min(240px, 68vw);
+}
+
+.admin-login-copy h1 {
+  color: var(--navy);
+  font-size: clamp(30px, 4vw, 42px);
+  line-height: 1.15;
+  margin: 6px 0 0;
+}
+
+.admin-login-copy p {
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.6;
+  margin: 14px 0 0;
+}
+
+.admin-login-form {
+  display: grid;
+  gap: 14px;
+}
+
+.admin-login-form label {
+  color: var(--ink);
+  display: grid;
+  font-size: 14px;
+  font-weight: 900;
+  gap: 8px;
+}
+
+.admin-login-form input {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  color: var(--ink);
+  min-height: 48px;
+  padding: 0 14px;
+}
+
+.admin-login-form input:focus {
+  border-color: var(--gold);
+  outline: 2px solid rgba(189, 145, 77, 0.16);
+}
+
+.admin-login-form button,
+.admin-login-home {
+  align-items: center;
+  border: 0;
+  border-radius: 6px;
+  display: inline-flex;
+  font-size: 15px;
+  font-weight: 900;
+  gap: 8px;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+}
+
+.admin-login-form button {
+  background: var(--navy);
+  color: #fff;
+}
+
+.admin-login-home {
+  background: #f7fafc;
+  border: 1px solid var(--line);
+  color: var(--navy);
+}
+
+.admin-login-error {
+  background: #fff1f0;
+  color: #9f2f24;
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1.45;
+  margin: 0;
+  padding: 11px 12px;
+}
+
 .admin-shell {
   background: #fff;
   border: 1px solid rgba(7, 42, 70, 0.08);
@@ -1599,7 +1698,15 @@ a {
   margin: 14px 0 0;
 }
 
+.admin-top-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
 .admin-back,
+.admin-logout,
 .admin-toolbar button {
   align-items: center;
   background: #fff;
@@ -2027,6 +2134,12 @@ a {
   font-weight: 900;
   letter-spacing: 0;
   white-space: nowrap;
+}
+
+.admin-logout {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
 }
 
 .floating-bar-brand {
@@ -2845,14 +2958,21 @@ a {
     padding: 20px;
   }
 
+  .admin-login-shell {
+    padding: 24px 20px;
+  }
+
   .admin-toolbar button,
   .admin-sms-actions button,
-  .admin-back {
+  .admin-back,
+  .admin-logout,
+  .admin-login-home {
     width: 100%;
   }
 
   .admin-sms-head,
-  .admin-sms-actions {
+  .admin-sms-actions,
+  .admin-top-actions {
     align-items: stretch;
     flex-direction: column;
   }

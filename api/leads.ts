@@ -1,3 +1,4 @@
+import { requireAdminAuth } from "./_admin-auth.js";
 import { fetchSmsSettings, normalizePhone, sendReservationMms, type SmsStatus } from "./_sms.js";
 import { getSupabaseClient, readPayload, type VercelRequest, type VercelResponse } from "./_supabase.js";
 
@@ -123,6 +124,10 @@ export default async function handler(request: VercelRequest, response: VercelRe
   response.setHeader("Content-Type", "application/json; charset=utf-8");
 
   try {
+    if ((request.method === "GET" || request.method === "DELETE") && !requireAdminAuth(request, response)) {
+      return;
+    }
+
     const supabase = getSupabaseClient();
 
     if (request.method === "GET") {
