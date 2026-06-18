@@ -389,8 +389,8 @@ const adminCredentials = {
   username: "admin",
   password: "a1234!",
 };
-const adPopupStorageKey = "sokcho-landing2-web-ad-hidden-date-20260618";
-const webAdBannerSrc = "/assets/web-ad-banner.png?v=20260618";
+const adPopupStorageKey = "sokcho-landing2-web-ad-hidden-date-20260618-v2";
+const webAdBannerSrc = "/assets/web-ad-banner.png?v=20260618-v2";
 const duplicateReservationMessage = "이미 방문예약 접수된 고객입니다.";
 const defaultSmsBodyTemplate = `안녕하세요, {{name}} 고객님
 속초 중앙하이츠 THE 228 입니다.
